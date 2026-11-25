@@ -1,0 +1,842 @@
+/* =========================================================
+   ONCOLOGIST DASHBOARD
+   ========================================================= */
+
+:root {
+    --onc-primary: #245c4f;
+    --onc-primary-dark: #184638;
+    --onc-primary-light: #e6f1ed;
+    --onc-accent: #80a99a;
+    --onc-bg: #f5f7f6;
+    --onc-card: #ffffff;
+    --onc-text: #24332e;
+    --onc-muted: #718078;
+    --onc-border: #e1e8e4;
+    --onc-danger: #b94c4c;
+    --onc-warning: #d69a3b;
+    --onc-radius: 14px;
+    --onc-shadow: 0 3px 14px rgba(25, 55, 44, 0.06);
+}
+
+
+/* =========================================================
+   GENERAL DASHBOARD
+   ========================================================= */
+
+.dashboard-container,
+.oncologist-dashboard {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 28px;
+    color: var(--onc-text);
+    box-sizing: border-box;
+}
+
+.dashboard-container *,
+.oncologist-dashboard * {
+    box-sizing: border-box;
+}
+
+.dashboard-container h1,
+.dashboard-container h2,
+.dashboard-container h3,
+.oncologist-dashboard h1,
+.oncologist-dashboard h2,
+.oncologist-dashboard h3 {
+    color: var(--onc-text);
+}
+
+.dashboard-container p,
+.oncologist-dashboard p {
+    line-height: 1.6;
+}
+
+.dashboard-section {
+    margin-bottom: 32px;
+    scroll-margin-top: 30px;
+}
+
+.dashboard-section > h2 {
+    font-size: 22px;
+    font-weight: 650;
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   DASHBOARD HEADER
+   ========================================================= */
+
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+    font-size: 30px;
+    margin: 0 0 8px;
+    font-weight: 700;
+}
+
+.dashboard-header p {
+    color: var(--onc-muted);
+    margin: 0;
+}
+
+.dashboard-header-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   DASHBOARD NAVIGATION
+   ========================================================= */
+
+.dashboard-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px;
+    background: var(--onc-card);
+    border: 1px solid var(--onc-border);
+    border-radius: var(--onc-radius);
+    margin-bottom: 28px;
+    box-shadow: var(--onc-shadow);
+}
+
+.dashboard-nav a {
+    text-decoration: none;
+    color: var(--onc-muted);
+    padding: 10px 15px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+.dashboard-nav a:hover {
+    background: var(--onc-primary-light);
+    color: var(--onc-primary);
+}
+
+
+/* =========================================================
+   METRIC CARDS
+   ========================================================= */
+
+.dashboard-metrics,
+.metric-grid,
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.metric-card,
+.dashboard-card,
+.stat-card {
+    background: var(--onc-card);
+    border: 1px solid var(--onc-border);
+    border-radius: var(--onc-radius);
+    padding: 22px;
+    box-shadow: var(--onc-shadow);
+}
+
+.metric-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 145px;
+}
+
+.metric-card .metric-label,
+.metric-card .card-label {
+    font-size: 14px;
+    color: var(--onc-muted);
+    margin-bottom: 14px;
+}
+
+.metric-card .metric-value,
+.metric-card .card-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--onc-primary);
+    margin: 0;
+}
+
+.metric-card .metric-description {
+    font-size: 12px;
+    color: var(--onc-muted);
+    margin-top: 8px;
+}
+
+
+/* =========================================================
+   CARDS AND CONTENT
+   ========================================================= */
+
+.dashboard-card {
+    margin-bottom: 20px;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.card-header h3 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.card-header p {
+    margin: 5px 0 0;
+    color: var(--onc-muted);
+    font-size: 13px;
+}
+
+.dashboard-two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+}
+
+.dashboard-three-column {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+
+/* =========================================================
+   FORMS
+   ========================================================= */
+
+.dashboard-form,
+.dashboard-container form,
+.oncologist-dashboard form {
+    margin-bottom: 18px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 15px;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--onc-text);
+}
+
+.dashboard-container input,
+.dashboard-container select,
+.dashboard-container textarea,
+.oncologist-dashboard input,
+.oncologist-dashboard select,
+.oncologist-dashboard textarea {
+    width: 100%;
+    padding: 11px 13px;
+    border: 1px solid var(--onc-border);
+    border-radius: 9px;
+    background: #fff;
+    color: var(--onc-text);
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+.dashboard-container input:focus,
+.dashboard-container select:focus,
+.dashboard-container textarea:focus,
+.oncologist-dashboard input:focus,
+.oncologist-dashboard select:focus,
+.oncologist-dashboard textarea:focus {
+    border-color: var(--onc-accent);
+    box-shadow: 0 0 0 3px rgba(128, 169, 154, 0.15);
+}
+
+.dashboard-container textarea,
+.oncologist-dashboard textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.dashboard-container input[type="checkbox"],
+.oncologist-dashboard input[type="checkbox"] {
+    width: auto;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.dashboard-container button,
+.oncologist-dashboard button,
+.dashboard-btn {
+    border: none;
+    border-radius: 9px;
+    padding: 11px 16px;
+    background: var(--onc-primary);
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.dashboard-container button:hover,
+.oncologist-dashboard button:hover,
+.dashboard-btn:hover {
+    background: var(--onc-primary-dark);
+}
+
+.dashboard-container button:active,
+.oncologist-dashboard button:active {
+    transform: scale(0.98);
+}
+
+.btn-secondary,
+.dashboard-container button.btn-secondary,
+.oncologist-dashboard button.btn-secondary {
+    background: #edf2ef;
+    color: var(--onc-primary);
+}
+
+.btn-secondary:hover {
+    background: #dce9e3;
+}
+
+.btn-danger,
+.dashboard-container button.btn-danger,
+.oncologist-dashboard button.btn-danger {
+    background: #f9eaea;
+    color: var(--onc-danger);
+}
+
+.btn-danger:hover {
+    background: #f0d7d7;
+}
+
+.btn-small {
+    padding: 7px 11px !important;
+    font-size: 12px !important;
+}
+
+
+/* =========================================================
+   STATUS LABELS
+   ========================================================= */
+
+.status-badge,
+.status-label {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.status-pending {
+    background: #fff4dd;
+    color: #95691c;
+}
+
+.status-completed {
+    background: #e3f3e9;
+    color: #28764b;
+}
+
+.status-draft {
+    background: #edf0f5;
+    color: #566477;
+}
+
+.status-released {
+    background: #e3f3e9;
+    color: #28764b;
+}
+
+.status-scheduled {
+    background: #e8f0ff;
+    color: #4566a2;
+}
+
+.status-cancelled {
+    background: #f9eaea;
+    color: #a34c4c;
+}
+
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+
+.dashboard-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.dashboard-container table,
+.oncologist-dashboard table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 600px;
+}
+
+.dashboard-container th,
+.oncologist-dashboard th {
+    padding: 13px 14px;
+    text-align: left;
+    background: #f5f8f6;
+    color: var(--onc-muted);
+    font-weight: 600;
+    border-bottom: 1px solid var(--onc-border);
+}
+
+.dashboard-container td,
+.oncologist-dashboard td {
+    padding: 14px;
+    border-bottom: 1px solid var(--onc-border);
+    vertical-align: middle;
+}
+
+.dashboard-container tbody tr:hover,
+.oncologist-dashboard tbody tr:hover {
+    background: #fafcfb;
+}
+
+.table-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+
+/* =========================================================
+   PATIENT DIRECTORY
+   ========================================================= */
+
+.patient-list,
+.patient-directory {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.patient-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #fff;
+    border: 1px solid var(--onc-border);
+    border-radius: 12px;
+    padding: 18px;
+}
+
+.patient-avatar {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--onc-primary-light);
+    color: var(--onc-primary);
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.patient-information {
+    flex: 1;
+    min-width: 0;
+}
+
+.patient-information h4 {
+    margin: 0 0 5px;
+    font-size: 15px;
+}
+
+.patient-information p {
+    margin: 0;
+    color: var(--onc-muted);
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   TASKS
+   ========================================================= */
+
+.task-list,
+.dashboard-task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.task-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 17px;
+    border: 1px solid var(--onc-border);
+    border-radius: 12px;
+    background: #fff;
+}
+
+.task-item.task-done {
+    opacity: 0.7;
+}
+
+.task-item.task-done .task-title {
+    text-decoration: line-through;
+}
+
+.task-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.task-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.task-description {
+    color: var(--onc-muted);
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.task-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    color: var(--onc-muted);
+    font-size: 12px;
+}
+
+.task-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   REVIEW, REPORT AND APPOINTMENT ITEMS
+   ========================================================= */
+
+.review-item,
+.report-item,
+.appointment-item {
+    padding: 18px;
+    border: 1px solid var(--onc-border);
+    border-radius: 12px;
+    background: #fff;
+    margin-bottom: 14px;
+}
+
+.review-item h4,
+.report-item h4,
+.appointment-item h4 {
+    margin: 0 0 8px;
+    font-size: 15px;
+}
+
+.review-item p,
+.report-item p,
+.appointment-item p {
+    color: var(--onc-muted);
+    font-size: 13px;
+}
+
+.item-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--onc-muted);
+}
+
+
+/* =========================================================
+   ACTIVITY FEED
+   ========================================================= */
+
+.activity-feed {
+    display: flex;
+    flex-direction: column;
+}
+
+.activity-item {
+    position: relative;
+    padding: 17px 18px;
+    border-left: 2px solid var(--onc-accent);
+    margin-left: 8px;
+    border-bottom: 1px solid var(--onc-border);
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-item h4 {
+    font-size: 14px;
+    margin: 0 0 5px;
+}
+
+.activity-item p {
+    margin: 0;
+    color: var(--onc-muted);
+    font-size: 13px;
+}
+
+.activity-time {
+    font-size: 12px;
+    color: var(--onc-muted);
+    margin-top: 7px;
+}
+
+
+/* =========================================================
+   CHARTS
+   ========================================================= */
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    min-height: 280px;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid var(--onc-border);
+    border-radius: var(--onc-radius);
+    margin-bottom: 22px;
+}
+
+.chart-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.chart-card {
+    background: white;
+    padding: 20px;
+    border: 1px solid var(--onc-border);
+    border-radius: var(--onc-radius);
+    box-shadow: var(--onc-shadow);
+}
+
+.chart-card h3 {
+    font-size: 16px;
+    margin: 0 0 15px;
+}
+
+
+/* =========================================================
+   PROFILE
+   ========================================================= */
+
+.profile-card {
+    background: #fff;
+    border: 1px solid var(--onc-border);
+    border-radius: var(--onc-radius);
+    padding: 24px;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.profile-field {
+    padding: 14px;
+    background: #f7f9f8;
+    border-radius: 10px;
+}
+
+.profile-field .field-label {
+    font-size: 12px;
+    color: var(--onc-muted);
+    margin-bottom: 6px;
+}
+
+.profile-field .field-value {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   ALERTS AND EMPTY STATES
+   ========================================================= */
+
+.dashboard-alert {
+    padding: 15px 18px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.alert-success {
+    background: #e7f4ed;
+    color: #286749;
+}
+
+.alert-error {
+    background: #faeaea;
+    color: #9d4242;
+}
+
+.alert-warning {
+    background: #fff4df;
+    color: #8c671e;
+}
+
+.empty-state {
+    padding: 35px 20px;
+    text-align: center;
+    border: 1px dashed var(--onc-border);
+    border-radius: 12px;
+    color: var(--onc-muted);
+    background: #fafcfb;
+}
+
+.empty-state h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.empty-state p {
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.dashboard-search {
+    max-width: 400px;
+    margin-bottom: 18px;
+}
+
+.dashboard-search input {
+    width: 100%;
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 1100px) {
+    .dashboard-metrics,
+    .metric-grid,
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dashboard-three-column {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-container,
+    .oncologist-dashboard {
+        padding: 16px;
+    }
+
+    .dashboard-header {
+        align-items: flex-start;
+    }
+
+    .dashboard-header h1 {
+        font-size: 24px;
+    }
+
+    .dashboard-two-column,
+    .dashboard-three-column,
+    .chart-grid,
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-nav {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
+
+    .dashboard-nav a {
+        white-space: nowrap;
+    }
+
+    .task-item {
+        flex-direction: column;
+    }
+
+    .task-actions {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-metrics,
+    .metric-grid,
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .metric-card {
+        min-height: 120px;
+    }
+
+    .dashboard-container button,
+    .oncologist-dashboard button {
+        width: 100%;
+    }
+}
+

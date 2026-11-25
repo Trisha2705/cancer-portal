@@ -1,0 +1,40 @@
+{
+  "manifest_url": "https://gdc.cancer.gov/system/files/public/file/PanCan-General_Open_GDC-Manifest_2.txt",
+  "files": [
+    {
+      "id": "1a7d7be8-675d-4e60-a105-19d4121bdebf",
+      "filename": "merged_sample_quality_annotations.tsv",
+      "md5": "05ddd2270fb1fb24fbdc2fe9bf7384e5",
+      "size": "8463670",
+      "verified": true,
+      "url": "https://api.gdc.cancer.gov/data/1a7d7be8-675d-4e60-a105-19d4121bdebf"
+    },
+    {
+      "id": "1c8cfe5f-e52d-41ba-94da-f15ea1337efc",
+      "filename": "mc3.v0.2.8.PUBLIC.maf.gz",
+      "md5": "639ad8f8386e98dacc22e439188aa8fa",
+      "size": "753339089",
+      "verified": true,
+      "url": "https://api.gdc.cancer.gov/data/1c8cfe5f-e52d-41ba-94da-f15ea1337efc"
+    },
+    {
+      "id": "1b5f413e-a8d1-4d10-92eb-7c4ae739ed81",
+      "filename": "TCGA-CDR-SupplementalTableS1.xlsx",
+      "md5": "a4591b2dcee39591f59e5e25a6ce75fa",
+      "size": "2945129",
+      "verified": true,
+      "url": "https://api.gdc.cancer.gov/data/1b5f413e-a8d1-4d10-92eb-7c4ae739ed81"
+    },
+    {
+      "id": "3586c0da-64d0-4b74-a449-5ff4d9136611",
+      "filename": "EBPlusPlusAdjustPANCAN_IlluminaHiSeq_RNASeqV2.geneExp.tsv",
+      "md5": "02e72c33071307ff6570621480d3c90b",
+      "size": "1882540959",
+      "verified": true,
+      "url": "https://api.gdc.cancer.gov/data/3586c0da-64d0-4b74-a449-5ff4d9136611"
+    }
+  ],
+  "retrieval_date": "2026-11-12",
+  "data_release": "TCGA Pan-Cancer Atlas publication-associated data; MC3 v0.2.8",
+  "expression_delivery": "Original TSV losslessly gzip-compressed; official expression MD5 applies to the decompressed TSV."
+}

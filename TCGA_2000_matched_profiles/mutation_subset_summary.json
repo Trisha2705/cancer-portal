@@ -1,0 +1,289 @@
+{
+  "source_MAF": "mc3.v0.2.8.PUBLIC.maf.gz",
+  "source_records_scanned": 3600963,
+  "source_comment_lines_retained": 0,
+  "source_MAF_column_count": 114,
+  "delivered_MAF_column_count": 116,
+  "added_MAF_columns": [
+    "sample_id",
+    "patient_id"
+  ],
+  "selected_samples": 2000,
+  "selected_unique_patients": 2000,
+  "selected_samples_with_observed_MAF_records": 2000,
+  "selected_mutation_records": 771664,
+  "selected_PASS_mutation_records": 666183,
+  "selected_samples_with_PASS_records": 1851,
+  "selected_records_mapped_to_expression_genes": 718362,
+  "selected_records_with_invalid_entrez": 771664,
+  "unique_valid_entrez_in_selected_records": 0,
+  "matrix_gene_rows": 20531,
+  "matrix_sample_columns": 2000,
+  "matrix_gene_rows_with_valid_entrez": 20531,
+  "matrix_gene_rows_set_to_NA": 60,
+  "matrix_unique_valid_expression_entrez": 20531,
+  "matrix_cells_equal_to_1": 557112,
+  "matrix_gene_rows_with_at_least_one_1": 17768,
+  "FILTER_counts": {
+    "PASS": 666183,
+    "StrandBias": 1534,
+    "StrandBias,common_in_exac": 3,
+    "StrandBias,native_wga_mix": 25,
+    "StrandBias,nonpreferredpair": 34,
+    "StrandBias,oxog": 35,
+    "StrandBias,wga": 81,
+    "common_in_exac": 4673,
+    "common_in_exac,gapfiller": 3,
+    "common_in_exac,gapfiller,nonpreferredpair": 2,
+    "common_in_exac,native_wga_mix": 23,
+    "common_in_exac,nonpreferredpair": 171,
+    "common_in_exac,nonpreferredpair,wga": 2,
+    "common_in_exac,oxog": 11,
+    "common_in_exac,wga": 284,
+    "gapfiller": 148,
+    "gapfiller,nonpreferredpair": 80,
+    "gapfiller,nonpreferredpair,oxog": 1,
+    "gapfiller,oxog": 2,
+    "native_wga_mix": 1416,
+    "nonpreferredpair": 26383,
+    "nonpreferredpair,oxog": 1331,
+    "nonpreferredpair,wga": 389,
+    "oxog": 33167,
+    "oxog,wga": 10,
+    "wga": 35673
+  },
+  "Variant_Classification_counts": {
+    "3'Flank": 4664,
+    "3'UTR": 63431,
+    "5'Flank": 3281,
+    "5'UTR": 17226,
+    "Frame_Shift_Del": 15259,
+    "Frame_Shift_Ins": 5113,
+    "In_Frame_Del": 1934,
+    "In_Frame_Ins": 182,
+    "Intron": 23649,
+    "Missense_Mutation": 415153,
+    "Nonsense_Mutation": 36551,
+    "Nonstop_Mutation": 539,
+    "RNA": 10681,
+    "Silent": 163049,
+    "Splice_Site": 10410,
+    "Translation_Start_Site": 542
+  },
+  "PASS_Variant_Classification_counts": {
+    "3'Flank": 4258,
+    "3'UTR": 57019,
+    "5'Flank": 2933,
+    "5'UTR": 15031,
+    "Frame_Shift_Del": 13382,
+    "Frame_Shift_Ins": 4518,
+    "In_Frame_Del": 1695,
+    "In_Frame_Ins": 156,
+    "Intron": 20336,
+    "Missense_Mutation": 357581,
+    "Nonsense_Mutation": 29605,
+    "Nonstop_Mutation": 434,
+    "RNA": 9375,
+    "Silent": 140683,
+    "Splice_Site": 8713,
+    "Translation_Start_Site": 464
+  },
+  "NCBI_Build_counts": {
+    "GRCh37": 771664
+  },
+  "mapping_policy": "Exact case-sensitive Hugo_Symbol to a unique expression gene_symbol; reject symbols with multiple observed valid ENSG IDs; no alias or case normalization",
+  "mutation_matrix_definition": {
+    "1": "At least one selected source MC3 record maps to this expression row by an unambiguous exact gene symbol",
+    "0": "No exact-symbol mapped record observed in this release; not confirmed wild-type, assay coverage, or successful alias resolution",
+    "NA": "Expression symbol is unusable, identifies multiple expression rows, or has multiple observed valid Ensembl gene IDs"
+  },
+  "variant_filtering": "None: all source FILTER values and all consequence classes retained in both MAF and observed-record matrix",
+  "record_preservation": "Original selected MAF fields and row order preserved; shared sample_id and patient_id prepended",
+  "matrix_order": "Gene order follows gene_mapping.csv; sample order follows selected_samples.csv",
+  "per_sample_source_crosswalk_counts_verified": [
+    "mutation_record_count",
+    "pass_mutation_record_count"
+  ],
+  "elapsed_seconds": 50.73,
+  "Entrez_Gene_Id_value_counts": {
+    "0": 771664
+  },
+  "selected_records_with_invalid_MAF_symbol": 0,
+  "selected_records_symbol_absent_from_expression": 52027,
+  "selected_records_symbol_ambiguous_in_expression": 6,
+  "selected_records_symbol_ambiguous_in_MAF_Ensembl": 1269,
+  "matrix_gene_rows_mappable_by_symbol": 20471,
+  "matrix_mapping_reason_counts": {
+    "exact_unique_symbol_observed_single_Ensembl_id": 17768,
+    "not_observed_mapping_unverified": 2703,
+    "observed_symbol_has_multiple_Ensembl_gene_ids": 29,
+    "symbol_identifies_multiple_expression_rows": 2,
+    "unusable_expression_symbol": 29
+  },
+  "ambiguous_expression_symbols": [
+    "SLC35E2"
+  ],
+  "observed_MAF_symbols_with_multiple_Ensembl_ids": {
+    "ACE": [
+      "ENSG00000159640",
+      "ENSG00000264813"
+    ],
+    "ANKRD18A": [
+      "ENSG00000180071",
+      "ENSG00000273170"
+    ],
+    "CFB": [
+      "ENSG00000243649",
+      "ENSG00000244255"
+    ],
+    "CHTF8": [
+      "ENSG00000168802",
+      "ENSG00000263203"
+    ],
+    "CRYBG3": [
+      "ENSG00000080200",
+      "ENSG00000233280"
+    ],
+    "DCAF8": [
+      "ENSG00000132716",
+      "ENSG00000258465"
+    ],
+    "GALT": [
+      "ENSG00000213930",
+      "ENSG00000258728"
+    ],
+    "IDS": [
+      "ENSG00000010404",
+      "ENSG00000241489"
+    ],
+    "ITFG3": [
+      "ENSG00000167930",
+      "ENSG00000269881"
+    ],
+    "ITGB3": [
+      "ENSG00000259207",
+      "ENSG00000259753"
+    ],
+    "KBTBD4": [
+      "ENSG00000123444",
+      "ENSG00000231880"
+    ],
+    "MDGA2": [
+      "ENSG00000139915",
+      "ENSG00000272781"
+    ],
+    "MRPL30": [
+      "ENSG00000185414",
+      "ENSG00000273155"
+    ],
+    "MRPS17": [
+      "ENSG00000239789",
+      "ENSG00000249773"
+    ],
+    "MUC3A": [
+      "ENSG00000169894",
+      "ENSG00000228273"
+    ],
+    "NPIPA7": [
+      "ENSG00000183889",
+      "ENSG00000233024"
+    ],
+    "PI4K2A": [
+      "ENSG00000155252",
+      "ENSG00000249967"
+    ],
+    "RBL1": [
+      "ENSG00000080839",
+      "ENSG00000269846"
+    ],
+    "RNASE11": [
+      "ENSG00000173464",
+      "ENSG00000259060"
+    ],
+    "RPP14": [
+      "ENSG00000163684",
+      "ENSG00000255154"
+    ],
+    "SHPK": [
+      "ENSG00000197417",
+      "ENSG00000262304"
+    ],
+    "SLC25A10": [
+      "ENSG00000183048",
+      "ENSG00000262660"
+    ],
+    "SNORA15": [
+      "ENSG00000206785",
+      "ENSG00000207062"
+    ],
+    "SNORA22": [
+      "ENSG00000206634",
+      "ENSG00000207344"
+    ],
+    "SOX7": [
+      "ENSG00000171056",
+      "ENSG00000258724"
+    ],
+    "TAP2": [
+      "ENSG00000204267",
+      "ENSG00000250264"
+    ],
+    "TLR9": [
+      "ENSG00000173366",
+      "ENSG00000239732"
+    ],
+    "TMEM236": [
+      "ENSG00000148483",
+      "ENSG00000184040"
+    ],
+    "TMEM239": [
+      "ENSG00000198326",
+      "ENSG00000241690"
+    ],
+    "UGT2A1": [
+      "ENSG00000173610",
+      "ENSG00000270386"
+    ],
+    "Y_RNA": [
+      "ENSG00000199290",
+      "ENSG00000199668",
+      "ENSG00000199751",
+      "ENSG00000200874",
+      "ENSG00000201023",
+      "ENSG00000201565",
+      "ENSG00000207258",
+      "ENSG00000212392"
+    ],
+    "ZNF33B": [
+      "ENSG00000196693",
+      "ENSG00000272373"
+    ],
+    "ZNF668": [
+      "ENSG00000167394",
+      "ENSG00000232748"
+    ],
+    "ZNF709": [
+      "ENSG00000196826",
+      "ENSG00000242852"
+    ],
+    "ZNF788": [
+      "ENSG00000188474",
+      "ENSG00000214189"
+    ],
+    "snoU13": [
+      "ENSG00000238474",
+      "ENSG00000238513",
+      "ENSG00000238712",
+      "ENSG00000238905",
+      "ENSG00000238954",
+      "ENSG00000238996",
+      "ENSG00000239052",
+      "ENSG00000239172"
+    ]
+  },
+  "mapping_ambiguity_check_scope": "Selected MAF records only",
+  "Entrez_limitation": "All selected source Entrez_Gene_Id values are 0; those fields cannot link genes to the expression matrix",
+  "unobserved_unique_expression_symbols": "Kept as 0 under the observed-record definition, with not_observed_mapping_unverified row metadata",
+  "symbol_remapping_elapsed_seconds": 30.58,
+  "Ensembl_ambiguity_identifiers": "Valid stable ENSG gene IDs; version suffixes are removed before distinct-ID counting"
+}

@@ -1,0 +1,12 @@
+# Large TCGA datasets
+TCGA_2000_matched_profiles/expression_2000.tsv.gz
+TCGA_2000_matched_profiles/mutations_2000.maf.gz
+# Large TCGA dataset files - keep locally, not in Git
+TCGA_2000_matched_profiles/expression_2000.tsv
+TCGA_2000_matched_profiles/expression_2000.tsv.gz
+TCGA_2000_matched_profiles/mutations_2000.maf.gz
+TCGA_2000_matched_profiles/mutation_presence_2000.tsv
+TCGA_2000_matched_profiles/mutation_presence_2000.tsv.gz
+
+# macOS files
+.DS_Store
