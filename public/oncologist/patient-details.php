@@ -208,6 +208,50 @@ try {
         $mutationsBySample[$mutation['sample_id']][] = $mutation;
     }
 
+    // Retrieve saved clinical assessments for this patient.
+    $stmt = $pdo->prepare("
+        SELECT
+            ca.assessment_id,
+            ca.assessment_reasoning,
+            ca.supporting_findings,
+            ca.created_at,
+            ct.cancer_name,
+            ct.cancer_code,
+            prof.first_name,
+            prof.last_name
+        FROM clinician_assessments ca
+        INNER JOIN cancer_types ct
+            ON ct.cancer_type_id = ca.cancer_type_id
+        INNER JOIN professionals prof
+            ON prof.user_id = ca.user_id
+        WHERE ca.patient_id = ?
+        ORDER BY ca.created_at DESC
+    ");
+
+$stmt->execute([$patient_id]);
+$clinicalAssessments = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Retrieve AI predictions for this patient.
+    $stmt = $pdo->prepare("
+        SELECT
+            p.prediction_id,
+            p.model_used,
+            p.created_at,
+            ct.cancer_name,
+            ct.cancer_code,
+            pr.prediction_probability
+        FROM predictions p
+        INNER JOIN prediction_results pr
+            ON pr.prediction_id = p.prediction_id
+        INNER JOIN cancer_types ct
+            ON ct.cancer_type_id = pr.cancer_type_id
+        WHERE p.patient_id = ?
+        ORDER BY p.created_at DESC, pr.prediction_probability DESC
+    ");
+
+    $stmt->execute([$patient_id]);
+    $aiPredictions = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
     // Retrieve the latest consent record for each consent type.
     $stmt = $pdo->prepare("
         SELECT pc.*
@@ -504,14 +548,139 @@ function consentLabel($consent) {
         </div>
     </section>
 
-    <section class="details-section">
-        <h2>Clinical Assessments and Reports</h2>
+   <section class="details-section">
 
-        <p>
-            Clinical assessments, AI prediction reviews and patient reports
-            will appear here once those workflows are implemented.
+    <h2>Clinical Assessment</h2>
+
+    <p>
+        Record your independent clinical assessment before reviewing
+        any AI-generated predictions.
+    </p>
+
+    <?php if ($assessmentMessage): ?>
+        <p class="success-message">
+            <?= h($assessmentMessage) ?>
         </p>
-    </section>
+    <?php endif; ?>
+
+    <?php if ($assessmentError): ?>
+        <p class="error-message">
+            <?= h($assessmentError) ?>
+        </p>
+    <?php endif; ?>
+
+    <form method="POST" action="patient-details.php?id=<?= (int) $patient_id ?>">
+
+        <div>
+            <label for="cancer_type_id">Suspected cancer type</label>
+
+            <select
+                name="cancer_type_id"
+                id="cancer_type_id"
+                required
+            >
+                <option value="">Select cancer type</option>
+
+                <?php foreach ($cancerTypes as $type): ?>
+                    <option value="<?= (int) $type['cancer_type_id'] ?>">
+                        <?= h($type['cancer_name']) ?>
+                        (<?= h($type['cancer_code']) ?>)
+                    </option>
+                <?php endforeach; ?>
+
+            </select>
+        </div>
+
+        <div>
+            <label for="assessment_reasoning">
+                Clinical reasoning
+            </label>
+
+            <textarea
+                name="assessment_reasoning"
+                id="assessment_reasoning"
+                rows="5"
+                required
+                placeholder="Explain your independent clinical assessment..."
+            ></textarea>
+        </div>
+
+        <div>
+            <label for="supporting_findings">
+                Supporting findings
+            </label>
+
+            <textarea
+                name="supporting_findings"
+                id="supporting_findings"
+                rows="4"
+                placeholder="Record relevant symptoms, test results, mutation findings or other evidence..."
+            ></textarea>
+        </div>
+
+        <button
+            type="submit"
+            name="submit_assessment"
+            value="1"
+            class="ci-button"
+        >
+            Save Clinical Assessment
+        </button>
+
+    </form>
+
+</section>
+
+<section class="details-section">
+
+    <h2>AI Prediction Results</h2>
+
+    <p>
+        AI-generated predictions will be displayed here when available.
+        Predictions are only generated when the patient has consented
+        to AI processing.
+    </p>
+
+    <?php if (empty($aiPredictions)): ?>
+
+        <p>No AI predictions have been generated for this patient yet.</p>
+
+    <?php else: ?>
+
+        <?php foreach ($aiPredictions as $prediction): ?>
+
+            <article class="record-card">
+
+                <h3>
+                    <?= h($prediction['cancer_name']) ?>
+                    (<?= h($prediction['cancer_code']) ?>)
+                </h3>
+
+                <p>
+                    <strong>Probability:</strong>
+                    <?= number_format(
+                        (float) $prediction['prediction_probability'] * 100,
+                        2
+                    ) ?>%
+                </p>
+
+                <p>
+                    <strong>Model:</strong>
+                    <?= h($prediction['model_used']) ?>
+                </p>
+
+                <p>
+                    <strong>Generated:</strong>
+                    <?= h(formatDate($prediction['created_at'])) ?>
+                </p>
+
+            </article>
+
+        <?php endforeach; ?>
+
+    <?php endif; ?>
+
+</section>
 
 </main>
 
